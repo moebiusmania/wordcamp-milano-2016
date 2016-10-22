@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WPCOM.js esempio</title>
+  <link rel="icon" href="https://s.w.org/about/images/logos/wordpress-logo-simplified-rgb.png">
+
+  <!-- Bootstrap (CSS)  -->
+  <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+  <!-- Stili della pagina -->
+  <style>
+    body{
+      padding-top: 40px;
+      padding-bottom: 100px;
+    }
+  </style>
+
+  <!-- Web Components (Polymer)  -->
+  <script src="./bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <!-- WordPress REST API JS client  -->
+  <script src="./node_modules/wpcom/build/wpcom.js"></script>
+
+  <!-- Importo i miei custom web components  -->
+  <link rel="import" href="./components/wpcom-app.html">
+
+</head>
+<body>
+  <div class="container">
+    <h1>WPcom.js + Polymer example</h1>
+    <hr>
+    <wpcom-app n-posts="6"></wpcom-app>
+  </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!-- Importa Polymer -->
+<link rel="import" href="./../bower_components/polymer/polymer.html">
+
+<!-- Importa il componente dei "freshly pressed" -->
+<link rel="import" href="./wpcom-fresh.html">
+
+<!-- Marcatura components -->
+<dom-module id="wpcom-app">
+    <template>
+      <style>
+        .cards{
+          display: flex;
+          flex-direction: row;
+          flex-flow: row wrap;
+          justify-content: space-between;
+        }
+        .cards .card{
+          margin: 5px;
+          flex: 1;
+          flex-basis: 25%;
+        }
+      </style>
+
+      <h3>Gli ultimi [[nPosts]] post su 'en.blog.wordpress.com'</h3>
+
+      <div class="cards">
+        <template is="dom-repeat" items="[[feed]]">
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title">[[item.title]]</h4>
+              <p><span class="tag tag-success">[[item.author.name]]</span></p>
+              <p class="card-text" inner-h-t-m-l="[[item.excerpt]]"></p>
+              <a href="[[item.URL]]" class="btn btn-primary" target="_blank">Open on blog</a>
+            </div>
+          </div>
+        </template>
+      </div>
+      <hr>
+      <wpcom-fresh></wpcom-fresh>
+
+    </template>
+
+    <script>
+    Polymer({
+        is: 'wpcom-app',
+        properties: {
+          wpcom: {
+            type: Function
+          },
+          feed: {
+            type: Array,
+            value: []
+          },
+          nPosts: {
+            type: Number,
+            value: 5,
+            reflectToAttribute: true,
+            observer: '_loadData'
+          }
+        },
+
+        created: function(){
+          // istanza locale di WPCOM
+          this.wpcom = WPCOM();
+        },
+
+        attached: function() {
+
+          this._loadData();
+        },
+
+        _loadData: function(){
+          // Ottiene una lista degli ultimo 5 post
+          // su "en.blog.wordpress.com"
+          var num = this.nPosts;
+          this.wpcom
+            .site('en.blog.wordpress.com')
+            .postsList({ number: num }, function(err, data) {
+              if (err) throw err;
+              // console.log(data);
+              this.feed = data.posts;
+            }.bind(this));
+        }
+
+    });
+    </script>
+</dom-module>

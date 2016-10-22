@@ -1,0 +1,22 @@
+{
+  "name": "wordcamp-milano-2016",
+  "homepage": "https://github.com/moebiusmania/wordcamp-milano-2016",
+  "authors": [
+    "Salvatore Laisa <moebiusmania@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.5",
+    "polymer": "^1.7.0"
+  }
+}

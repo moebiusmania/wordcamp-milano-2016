@@ -1,4 +1,4 @@
-# Demistifying Calipso & the WordPress rest API
+# Demistifying Calypso & the WordPress rest API
 <small>(Materiale di riferimento per il talk @ WordCamp Milano 2016)</small>
 
 ### Slides
@@ -13,7 +13,7 @@ Per utilizzare il progetto di esempio è necessario avere [Git](https://git-scm.
 4. Lanciate il web server locale con ```$ npm start```
 5. Aprite il browser all'url ```localhost:8080```
 
-<small>*Nota:* non è necessario copiare il simbolo $ di questi comandi!</small>
+<small>* **Nota***: *non è necessario copiare il simbolo $ di questi comandi!*</small>
 
 ### Licenza
 [MIT](LICENSE)
